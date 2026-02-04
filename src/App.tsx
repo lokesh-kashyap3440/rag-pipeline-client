@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import axios from 'axios';
-import { Send, Upload, FileText, Bot, User, Loader2, AlertCircle, Trash2 } from 'lucide-react';
+import { Send, Upload, FileText, Bot, User, Loader2, AlertCircle } from 'lucide-react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
