@@ -1,73 +1,59 @@
-# React + TypeScript + Vite
+# RAG Pipeline Client (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, mobile-responsive chat interface for interacting with your RAG Pipeline. Built with React, Vite, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   **📱 Mobile First:** Fully responsive UI with a drawer-based sidebar and dynamic viewport handling for Android/iOS.
+-   **💬 Real-time Chat:** Interactive chat interface with source citations.
+-   **file Upload:** Drag-and-drop or tap-to-upload support for PDFs.
+-   **🎛️ OCR Toggle:** Option to enable Vision-based processing for scanned documents.
 
-## React Compiler
+## Prerequisites
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+-   Node.js v18+
+-   Running instance of the [rag-pipeline-node](https://github.com/your-username/rag-pipeline-node) backend.
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/rag-pipeline-client.git
+    cd rag-pipeline-client
+    ```
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Development
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1.  **Configure API URL:**
+    Create a `.env` file (or rename `.env.example`):
+    ```env
+    VITE_API_URL=http://localhost:3000/api
+    ```
+
+2.  **Start the dev server:**
+    ```bash
+    npm run dev
+    ```
+
+## Building for Production
+
+```bash
+npm run build
 ```
+The output will be in the `dist` folder.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Deployment (Render)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+This project is configured for **Render Static Sites**.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1.  Create a **Static Site** on Render.
+2.  Connect this repository.
+3.  **Build Command:** `npm install && npm run build`
+4.  **Publish Directory:** `dist`
+5.  **Environment Variables:**
+    -   `VITE_API_URL`: The full URL of your deployed backend (e.g., `https://my-rag-api.onrender.com/api`).
